@@ -1,7 +1,13 @@
 const list = ["Rock", "Paper", "Scissors"];
 
 function playGame(choice) {
-	const oppChoice = list[Math.floor(Math.random() * list.length)]
+	const oppChoice = list[Math.floor(Math.random() * list.length)];
+
+	// Update Choice Announcements
+	document.getElementById("choiceAnnouncePlayer").textContent = "You chose: " + choice;
+	document.getElementById("choiceAnnounceOpponent").textContent = "Opponent chose: " + oppChoice;
+
+	// Game Logic and Results:
 	if (choice === oppChoice) {
 		document.getElementById("result").textContent = "It's a draw!";
 	}

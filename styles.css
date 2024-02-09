@@ -1,0 +1,12 @@
+div {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+button {
+	background-color: #4c6ac2;
+	color: #edf3fd;
+}
