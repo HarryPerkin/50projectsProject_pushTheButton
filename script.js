@@ -1,6 +1,42 @@
+// Define variabes.
 const list = ["Rock", "Paper", "Scissors"];
 let wins = 0, draws = 0, losses = 0;
 let games = 0;
+const responseTypes = {
+	good: [
+		"Wow! You are really good at this!",
+		"No fair!",
+		"You must get a lot of practice at this!"
+	],
+	middle: [
+		"It's all to play for!",
+		"Say your prayers!",
+		"Watch me take the lead!"
+	],
+	bad: [
+		"You suck!",
+		"I think you need more practice",
+		"Get ready to lose!"
+	]
+};
+// Define functions:
+function checkScore() {
+	if (wins > draws && wins > losses) { // Player is winning
+		let index = Math.floor(Math.random() * responseTypes.good.length);
+		return responseTypes.good[index];
+	}
+	else if (losses > draws && losses > wins) {
+		let index = Math.floor(Math.random() * responseTypes.bad.length);
+		return responseTypes.bad[index];
+	}
+	else if (draws >= wins || draws >= losses) {
+		let index = Math.floor(Math.random() * responseTypes.middle.length);
+		return responseTypes.middle[index];
+	}
+	else {
+		return "Keep playing";
+	}
+};
 
 function playGame(choice) {
 	const oppChoice = list[Math.floor(Math.random() * list.length)];
@@ -56,11 +92,12 @@ function calcWins(w, g) {
 	document.getElementById("totalGames").textContent = "Total Games Played: " + g;
 }
 
-// Get all elements with class "choice" to maintain a single event listener.
+// Listen for button click:
 document.querySelectorAll(".choice").forEach(button => {
 	button.addEventListener("click", function() {
 		playGame(button.textContent);
 		printScores(wins, draws, losses);
-		calcWins(wins, games);		
+		calcWins(wins, games);	
+		document.getElementById("enemyChat").textContent = checkScore();
 	});
 });
