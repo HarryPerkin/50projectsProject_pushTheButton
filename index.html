@@ -17,9 +17,31 @@
 		</div>
 		<div>
 			<h1>Result:</h1>
-			<p class="announce" id="choiceAnnouncePlayer"></p>
-			<p class="announce" id="choiceAnnounceOpponent"></p>
+			<table>
+				<tr>
+					<td>
+						<p class="announce" id="choiceAnnouncePlayer"></p>
+					</td>
+					<td>
+						<p class="announce" id="choiceAnnounceOpponent"></p>
+					</td>
+				</tr>
+			</table>			
 			<p id="result"></p>
+			<table>
+				<tr>
+					<th>Wins</th>
+					<th>Draws</th>
+					<th>Losses</th>
+				</tr>
+				<tr>
+					<td id="wins">0</td>
+					<td id="draws">0</td>
+					<td id="losses">0</td>
+				</tr>
+			</table>
+			<P id="totalGames">Total Games Played: 0</P>
+			<p id="winRate">Win Rate: 0%</p>
 		</div>
 
 		<script src="script.js"></script>
