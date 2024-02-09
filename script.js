@@ -25,14 +25,9 @@ function playGame(choice) {
 	}
 }
 
-document.getElementById("rock").addEventListener('click', function() {
-	playGame("Rock");
-});
-
-document.getElementById("paper").addEventListener('click', function() {
-	playGame("Paper");
-});
-
-document.getElementById("scissors").addEventListener('click', function() {
-	playGame("Scissors");
+// Get all elements with class "choice" to maintain a single event listener.
+document.querySelectorAll(".choice").forEach(button => {
+	button.addEventListener("click", function() {
+		playGame(button.textContent);
+	});
 });
